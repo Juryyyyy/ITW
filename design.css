@@ -1,0 +1,556 @@
+/*Nastavenie body a spravenie pozadia*/
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    color: #eef2ff;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(125, 211, 252, 0.18) 0, transparent 18rem),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.10) 0, transparent 12rem),
+        radial-gradient(circle at 50% 80%, rgba(125, 211, 252, 0.08) 0, transparent 16rem),
+        linear-gradient(180deg, #0b1020 0%, #11182b 45%, #090d18 100%);
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+    font-size: 1rem;
+    max-width: 1920px;
+}
+
+/*Urobenie hviezdiciek na pozadi*/
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        radial-gradient(2px 2px at 10% 20%, white 50%, transparent 55%),
+        radial-gradient(1px 1px at 30% 70%, white 50%, transparent 55%),
+        radial-gradient(2px 2px at 80% 40%, #7dd3fc 50%, transparent 55%),
+        radial-gradient(1px 1px at 60% 15%, white 50%, transparent 55%),
+        radial-gradient(1.5px 1.5px at 75% 85%, white 50%, transparent 55%),
+        radial-gradient(1px 1px at 15% 90%, #7dd3fc 50%, transparent 55%),
+        radial-gradient(2px 2px at 45% 25%, white 50%, transparent 55%),
+        radial-gradient(1px 1px at 52% 62%, white 50%, transparent 55%),
+        radial-gradient(1.5px 1.5px at 90% 12%, #7dd3fc 50%, transparent 55%),
+        radial-gradient(1px 1px at 5% 55%, white 50%, transparent 55%),
+        radial-gradient(1.5px 2px at 10% 20%, white 50%, transparent 55%),
+        radial-gradient(2px 1px at 30% 70%, white 50%, transparent 55%),
+        radial-gradient(2px 1px at 80% 40%, #7dd3fc 50%, transparent 55%),
+        radial-gradient(1px 1.5px at 60% 15%, white 50%, transparent 55%),
+        radial-gradient(1.3px 1.4px at 75% 85%, white 50%, transparent 55%),
+        radial-gradient(1.2px 1px at 15% 90%, #7dd3fc 50%, transparent 55%),
+        radial-gradient(1.5px 2px at 45% 25%, white 50%, transparent 55%),
+        radial-gradient(1px 1.8px at 52% 62%, white 50%, transparent 55%),
+        radial-gradient(1.6px 1.5px at 90% 12%, #7dd3fc 50%, transparent 55%),
+        radial-gradient(1.4px 1.5px at 5% 55%, white 50%, transparent 55%);
+    opacity: 0.7;
+    z-index: -1;
+}
+
+/*Nadpis v hlavicke*/
+header h1{
+    display: flex;
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 2rem;
+    flex-direction: column;
+}
+
+.header-shell{
+    position: relative;
+}
+
+header h1 span:first-child{
+    color: #7dd3fc;
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+header h1 a{
+    text-decoration: none;
+    color: inherit;
+}
+
+header h1 span:last-child{
+    color: #aab4d6;
+    font-size: 1.5rem;
+}
+
+/*Hlavna navigacia*/
+header nav {
+    background-color: #11182b;
+}
+
+#nav-toggle{
+    display: none;
+    align-items: center;
+    justify-content: left;
+    gap: 0.75rem;
+    margin: 0 1rem 1rem;
+    padding: 0.8rem 1rem;
+    width: calc(100% - 2rem);
+    border: 1px solid rgba(125, 211, 252, 0.35);
+    border-radius: 0.85rem;
+    background: rgba(17, 24, 43, 0.7);
+    color: #7dd3fc;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#nav-toggle i{
+    transition: transform 0.3s ease;
+}
+
+#nav-toggle[aria-expanded="true"] i{
+    transform: rotate(90deg);
+}
+
+header nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 1rem;
+}
+
+header nav ul li{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    transition: transform 0.3s ease,background-color 0.3s ease;
+}
+
+header nav ul li:hover{
+    transform: scale(1.1);
+    background-color: #7dd3fc;
+}
+
+header nav ul li a{
+    text-decoration: none;
+    color: #aab4d6;
+    transition: color 0.3s ease;
+}
+
+header nav ul li:hover a{
+    color: #0b1020;
+}
+
+/*Spolocna farba nadpisov v obsahu*/
+main h2, h3, h4{
+    color: #7dd3fc;
+}
+
+main{
+    flex: 1;
+}
+
+main section{
+    background: rgba(17, 24, 43, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    margin: 1rem;
+    padding: 1rem;
+}
+
+main section p{
+    color: #aab4d6;
+    accent-color: #7dd3fc;
+}
+
+.section-toggle{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #7dd3fc;
+    font: inherit;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+}
+
+.section-toggle-icon{
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.collapsible-section.is-open .section-toggle-icon{
+    transform: rotate(180deg);
+}
+
+.section-content{
+    padding-top: 1rem;
+}
+
+main img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+/*Dvojstlpcove rozlozenie uvodu a vzdelania na sirsich obrazovkach*/
+main #Layout{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*Dvojstlpcove rozlozenie pre prehlad programov*/
+main .Layout2{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+/*Loga programov na spracovanie fotografii*/
+main .Logo{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+main .Logo img{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    margin: 4rem;
+    transition: transform 0.4s ease;
+}
+
+main .Logo img:hover{
+    transform: scale(1.15);
+}
+
+/*Ukazka programu na snimanie fotografii*/
+main .Showcase{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+main .Showcase img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    margin: 1rem;
+}
+
+/*EDUCATION*/
+main #Education dl{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    margin: 0;
+}
+
+main #Education dl i{
+    color: #7dd3fc;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+main #Education dl i:hover{
+    transform: scale(1.2);
+}
+
+main #Education dl{
+    color: #aab4d6;
+}
+
+/*GALLERY*/
+main .gallery{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+main .photo{
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+main .photo img{
+    width: 100%;
+    height: 90%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+main .description{
+    position: absolute;
+    inset: 0;
+    background: rgba(11, 16, 32, 0.6);
+    color: #eef2ff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.photo:hover img{
+    filter: blur(1px);
+    transform: scale(1.02);
+}
+
+.photo:hover .description{
+    opacity: 1;
+}
+
+/*Navigacia ostane viditelna po odscrollovani*/
+#navigation.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+footer{
+    margin-top: auto;
+}
+
+#navigation.sticky ul{
+    margin: 0.5rem;
+}
+
+#navigation.sticky li{
+    padding: 0.4rem 1rem;
+}
+
+/*CONTACT*/
+main #Contact{
+    text-align: center;
+    padding: 1rem;
+}
+
+main #Contact p{
+    display: inline-block;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+}
+
+main #Contact p a i{
+    text-decoration: none;
+    color: #7dd3fc;
+    transition: transform 0.5s ease;
+}
+
+main #Contact p a:hover i{
+    transform: scale(1.3);
+}
+
+/*FOOTER*/
+footer{
+    text-align: left;
+    padding: 1rem;
+    background-color: #11182b;
+    color: #aab4d6;
+}
+
+/*MEDIA QUERIES*/
+/*Tabletove rozlozenie - mriezky sa zmenia na jeden stlpec*/
+@media (max-width: 1024px){
+    header h1{
+        margin: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    header h1 span:first-child{
+        font-size: 2.5rem;
+    }
+
+    header h1 span:last-child{
+        font-size: 1.25rem;
+    }
+
+    main #Layout,
+    main .Layout2,
+    main .gallery{
+        grid-template-columns: 1fr;
+    }
+
+    main .Logo img{
+        margin: 2rem;
+    }
+
+    main .Showcase img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+/*Mensie tablety a vacsie telefony*/
+@media (max-width: 768px){
+    body{
+        line-height: 1.4;
+    }
+
+    header nav ul{
+        margin: 0.75rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: left;
+        gap: 0.5rem;
+    }
+
+    header nav ul li{
+        padding: 0.45rem 0.8rem;
+    }
+
+    main section{
+        margin: 0.75rem;
+        padding: 0.9rem;
+    }
+
+    .section-toggle{
+        font-size: 1.3rem;
+    }
+
+    main .Logo{
+        gap: 0.5rem;
+    }
+
+    main .Logo img{
+        width: 60px;
+        height: 60px;
+        margin: 1rem;
+    }
+
+    main .gallery{
+        gap: 0.75rem;
+    }
+
+    main .photo{
+        overflow: visible;
+    }
+
+    main .photo img{
+        height: auto;
+        aspect-ratio: auto;
+        object-fit: contain;
+    }
+
+    main .description{
+        position: static;
+        opacity: 1;
+        margin-top: 0.75rem;
+        border-radius: 0.75rem;
+    }
+
+    .photo:hover img{
+        filter: none;
+        transform: none;
+    }
+
+    main #Contact p{
+        padding: 0 0.75rem;
+        font-size: 1.3rem;
+    }
+}
+
+/*Na mobile sa navigacia prepne do rozbalovacieho menu*/
+@media (max-width: 576px){
+    header h1{
+        margin: 0.5rem;
+        padding: 0.5rem;
+    }
+
+    header h1 span:first-child{
+        font-size: 2rem;
+    }
+
+    header h1 span:last-child{
+        font-size: 1.05rem;
+    }
+
+    #nav-toggle{
+        display: flex;
+        margin: 0 0.5rem 0.5rem;
+        width: calc(100% - 1rem);
+    }
+
+    #navigation{
+        display: none;
+        margin: 0 0.5rem 0.5rem;
+        border-radius: 0.85rem;
+        overflow: hidden;
+    }
+
+    #navigation.open{
+        display: block;
+    }
+
+    header nav ul{
+        margin: 0;
+        padding: 0.35rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.35rem;
+    }
+
+    header nav ul li{
+        display: block;
+        padding: 0;
+        text-align: left;
+    }
+
+    header nav ul li a{
+        display: block;
+        padding: 0.7rem 0.9rem;
+    }
+
+    #navigation.sticky ul{
+        margin: 0.35rem;
+    }
+
+    #navigation.sticky li{
+        padding: 0;
+    }
+
+    #navigation.sticky{
+        width: calc(100% - 1rem);
+        left: 0.5rem;
+        right: 0.5rem;
+    }
+
+    main section{
+        margin: 0.5rem;
+        padding: 0.8rem;
+    }
+
+    .section-toggle{
+        font-size: 1.15rem;
+    }
+
+    .section-content{
+        padding-top: 0.75rem;
+    }
+
+    main #Education dl{
+        grid-template-columns: max-content 1fr;
+        gap: 0.25rem 0.5rem;
+        align-items: start;
+    }
+
+    main #Contact p{
+        padding: 0 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    footer{
+        text-align: left;
+    }
+}
